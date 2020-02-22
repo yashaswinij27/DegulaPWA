@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "119839241913",
+    "firebase_url": "https://degula-appfeb.firebaseio.com",
+    "project_id": "degula-appfeb",
+    "storage_bucket": "degula-appfeb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119839241913:android:405e9e208cba813c284d68",
+        "android_client_info": {
+          "package_name": "app.degula.nearme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119839241913-hl43sfamjs180vdl45bd2f4m1q1v4d4u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.degula.nearme",
+            "certificate_hash": "0ee4bc744e243cc4a694c58934875db9929ec643"
+          }
+        },
+        {
+          "client_id": "119839241913-s7qe52f3lkgfm51dfudc5sb2m7p892bc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp3m1hmqxajTK4Y1No1zB1n7wjCf9NkPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119839241913-s7qe52f3lkgfm51dfudc5sb2m7p892bc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,75 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'LOGIN' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="form" #loginForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <ion-label position="stacked" color="medium">
+      <span class="bold">{{ 'USERNAME' | translate }}</span>
+    </ion-label>
+    <ion-item class="ion-margin-vertical" lines="none" color="light">
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+
+    <ion-label position="stacked" color="medium">
+      <span class="bold">{{ 'PASSWORD' | translate }}</span>
+    </ion-label>
+    <ion-item class="ion-margin-vertical" lines="none" color="light">
+      <ion-input type="password" formControlName="password"
+        (keyup.enter)="loginForm.ngSubmit.emit()">
+      </ion-input>
+    </ion-item>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="6" size-md="6">
+        <ion-button class="ion-margin-vertical" strong type="submit" color="primary" expand="block" shape="round" [disabled]="isLoadingByFacebook || isLoadingByUsername">
+          <ion-spinner color="light" *ngIf="isLoadingByUsername"></ion-spinner>
+          <span *ngIf="!isLoadingByUsername">{{ 'LOGIN' | translate }}</span>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="6" size-md="4">
+        <ion-button type="button" color="fb" expand="block" shape="round"
+          [disabled]="isLoadingByFacebook || isLoadingByUsername || isLoadingByGoogle"
+          (click)="onFacebookButtonTouched()">
+          <ion-icon slot="start" name="logo-facebook" color="light"></ion-icon>
+          <ion-spinner color="light" *ngIf="isLoadingByFacebook"></ion-spinner>
+          <span *ngIf="!isLoadingByFacebook">{{ 'FACEBOOK' | translate }}</span>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size-xs="6" size-md="4">
+        <ion-button type="button" color="google" expand="block" shape="round"
+          [disabled]="isLoadingByFacebook || isLoadingByUsername || isLoadingByGoogle"
+          (click)="onGoogleButtonTouched()">
+          <ion-icon slot="start" name="logo-google" color="light"></ion-icon>
+          <ion-spinner color="light" *ngIf="isLoadingByGoogle"></ion-spinner>
+          <span *ngIf="!isLoadingByGoogle">{{ 'GOOGLE_LOGIN' | translate }}</span>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <div class="ion-margin-vertical">
+      <ion-button type="button" class="bold" expand="block" fill="clear" color="medium" (click)="onPresentSignUpModal()">
+        {{ 'NO_ACCOUNT_YET_CREATE_ONE' | translate }}
+      </ion-button>
+
+      <ion-button type="button" class="bold" expand="block" fill="clear" color="medium" (click)="onPresentForgotPasswordModal()">
+        {{ 'FORGOT_PASSWORD' | translate }}
+      </ion-button>
+    </div>
+
+  </form>
+
+</ion-content>
