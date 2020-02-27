@@ -89,7 +89,17 @@ export class AppComponent {
     this.translate.setDefaultLang(environment.defaultLang);
 
     try {
-      let lang = await this.storage.getLang() || environment.defaultLang;
+
+      const supportedLangs = ['en', 'es', 'ar'];
+      const browserLang = navigator.language.substr(0, 2);
+
+      let lang = await this.storage.getLang();
+
+      if (lang === null && supportedLangs.indexOf(browserLang) !== -1) {
+        lang = browserLang;
+      }
+
+      lang = lang || environment.defaultLang;
 
       if (lang === 'ar') {
         document.dir = 'rtl';
@@ -97,7 +107,7 @@ export class AppComponent {
         document.dir = 'ltr';
       }
 
-      await this.storage.setLang(lang);
+      this.storage.setLang(lang);
       this.translate.use(lang);
       this.preference.lang = lang;
     } catch (error) {

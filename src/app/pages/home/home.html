@@ -2,7 +2,7 @@
   <ion-toolbar color="primary" fixed>
     <ion-title>
       <a routerLink="/">
-        <img class="logo" height="30" src="./assets/img/logo-1.png" />
+        <img class="logo" height="60" src="./assets/img/logo-1.png" />
       </a>
     </ion-title>
     <ion-buttons slot="end">
@@ -44,7 +44,20 @@
           </ion-slide>
         </ion-slides>
       </div>
+      <ion-content>
+          <!-- ADMOB -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript">
+    document.addEventListener('deviceready', function(){
+      admob.banner.prepare();
+      admob.banner.show({
+        id:'ca-app-pub-3940256099942544/6300978111',
+        autoshow:true
+      })
 
+    }, false);    
+    </script>
+</ion-content>
       <!-- Category List -->
 
       <ion-row class="ion-align-items-center ion-padding-start">

@@ -443,10 +443,11 @@ $grid-breakpoints-lg: 992px;
   }
 
   ion-header ion-toolbar {
-    --min-height: 70px;
+    --min-height: 80px;
 
     .logo {
-      height: 50px;
+      width: 135px !important;
+      height: 70px !important;
     }
   }
 
